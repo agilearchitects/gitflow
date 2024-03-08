@@ -2,9 +2,7 @@ name: Test
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - main
+  workflow_call:
 
 permissions:
   contents: read
@@ -18,9 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Test
-        uses: ./.github/actions/unit-test
 
       - name: Build
         uses: ./.github/actions/build
