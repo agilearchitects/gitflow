@@ -10,7 +10,8 @@ permissions:
   checks: write
 
 jobs:
-  deploy:
+  deploy_test_and_destroy:
+    name: Deploy, test and destroy
     runs-on: ubuntu-latest
     environment: e2e
     steps:
