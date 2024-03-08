@@ -12,7 +12,7 @@ permissions:
   checks: write
 
 jobs:  
-  test:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,14 +21,14 @@ jobs:
       - name: Test
         uses: ./.github/actions/unit-test
   
-  deploy-test:
+  test:
     uses: ./.github/workflows/test.yaml
     needs: [test]
   
-  execute-e2e:
+  e2e:
     uses: ./.github/workflows/e2e.yaml
-    needs: [test, deploy-test]
+    needs: [test]
   
-  deploy-staging:
+  staging:
     uses: ./.github/workflows/staging.yaml
     needs: [test, deploy-test, execute-e2e]
