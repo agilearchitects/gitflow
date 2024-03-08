@@ -12,31 +12,18 @@ permissions:
   checks: write
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
+    environment: dev
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
       - name: Test
         uses: ./.github/actions/unit-test
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
       - name: Build
         uses: ./.github/actions/build
         with:
           name: dev
-  
-  deploy:
-    runs-on: ubuntu-latest
-    environment: dev
-    needs: [test, build]
-    steps:
+
       - name: Checkout
         uses: actions/checkout@v4
 
