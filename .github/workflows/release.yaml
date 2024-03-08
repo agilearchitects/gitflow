@@ -31,4 +31,4 @@ jobs:
   
   staging:
     uses: ./.github/workflows/staging.yaml
-    needs: [release, deploy-test, execute-e2e]
+    needs: [release, test, e2e]
