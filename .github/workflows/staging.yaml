@@ -9,8 +9,9 @@ permissions:
   actions: read
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment: staging
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,14 +20,6 @@ jobs:
         uses: ./.github/actions/build
         with:
           name: staging
-  
-  deploy:
-    runs-on: ubuntu-latest
-    environment: staging
-    needs: [build]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - name: Deploy Stack
         uses: ./.github/actions/deploy

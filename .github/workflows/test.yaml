@@ -11,35 +11,22 @@ permissions:
   actions: read
   checks: write
 
-jobs:
-  test:
+jobs:  
+  deploy:
     runs-on: ubuntu-latest
+    environment: test
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       
       - name: Test
         uses: ./.github/actions/unit-test
-  
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
+
       - name: Build
         uses: ./.github/actions/build
         with:
           name: test
-  
-  deploy-test:
-    runs-on: ubuntu-latest
-    environment: test
-    needs: [test, build]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
+    
       - name: Deploy Stack
         uses: ./.github/actions/deploy
         with:
@@ -50,8 +37,6 @@ jobs:
   
   e2e:
     uses: ./.github/workflows/e2e.yaml
-    needs: [deploy-test]
   
   staging:
     uses: ./.github/workflows/staging.yaml
-    needs: [e2e]
