@@ -23,9 +23,12 @@ jobs:
   
   deploy-test:
     uses: ./.github/workflows/test.yaml
+    needs: [test]
   
   execute-e2e:
     uses: ./.github/workflows/e2e.yaml
+    needs: [test, deploy-test]
   
   deploy-staging:
     uses: ./.github/workflows/staging.yaml
+    needs: [test, deploy-test, execute-e2e]
