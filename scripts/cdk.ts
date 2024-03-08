@@ -1,0 +1,1 @@
+console.log("CDK called with:", process.argv.slice(2));

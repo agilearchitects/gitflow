@@ -1,0 +1,20 @@
+name: Unit test
+description: Run unit tests with yarn
+
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      uses: ./.github/actions/install
+    
+    - name: Run unit tests
+      shell: bash
+      run: yarn test
+    
+    - name: Upload test results
+      uses: dorny/test-reporter@v1
+      if: failure() || success()
+      with:
+        name: unit test report
+        path: test-reports/**/*.xml
+        reporter: jest-junit

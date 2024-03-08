@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="43" failures="0" errors="0" time="30.489">
+  <testsuite name="parseDynamoDBAttribute" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:52:57" time="24.707" tests="5">
+    <testcase classname="parseDynamoDBAttribute Parse string value correctly" name="parseDynamoDBAttribute Parse string value correctly" time="0.008">
+    </testcase>
+    <testcase classname="parseDynamoDBAttribute Parse number value correctly" name="parseDynamoDBAttribute Parse number value correctly" time="0.001">
+    </testcase>
+    <testcase classname="parseDynamoDBAttribute Parse boolean value correctly" name="parseDynamoDBAttribute Parse boolean value correctly" time="0">
+    </testcase>
+    <testcase classname="parseDynamoDBAttribute Parse list value correctly" name="parseDynamoDBAttribute Parse list value correctly" time="0.001">
+    </testcase>
+    <testcase classname="parseDynamoDBAttribute Parse map value correctly" name="parseDynamoDBAttribute Parse map value correctly" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="decodeJwtToken" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:53:22" time="2.863" tests="2">
+    <testcase classname="decodeJwtToken should decode jwt token" name="decodeJwtToken should decode jwt token" time="0.019">
+    </testcase>
+    <testcase classname="decodeJwtToken should throw error if decoding with invalid secret" name="decodeJwtToken should throw error if decoding with invalid secret" time="0.013">
+    </testcase>
+  </testsuite>
+  <testsuite name="mapTibCaseToCustomerOpinionCase" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:52:57" time="28.132" tests="1">
+    <testcase classname="mapTibCaseToCustomerOpinionCase should parse tib cast to customer opinion case" name="mapTibCaseToCustomerOpinionCase should parse tib cast to customer opinion case" time="0.125">
+    </testcase>
+  </testsuite>
+  <testsuite name="mapDynamodbRecordToDictionary" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:52:57" time="28.283" tests="1">
+    <testcase classname="mapDynamodbRecordToDictionary maps DynamoDB records to dictionaries correctly" name="mapDynamodbRecordToDictionary maps DynamoDB records to dictionaries correctly" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="mapDictionaryToDynamodbRecord" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:52:57" time="28.882" tests="4">
+    <testcase classname="mapDictionaryToDynamodbRecord Should map string type" name="mapDictionaryToDynamodbRecord Should map string type" time="0.051">
+    </testcase>
+    <testcase classname="mapDictionaryToDynamodbRecord Should map number type" name="mapDictionaryToDynamodbRecord Should map number type" time="0">
+    </testcase>
+    <testcase classname="mapDictionaryToDynamodbRecord Should map boolean type" name="mapDictionaryToDynamodbRecord Should map boolean type" time="0">
+    </testcase>
+    <testcase classname="mapDictionaryToDynamodbRecord Should map date type" name="mapDictionaryToDynamodbRecord Should map date type" time="0.047">
+    </testcase>
+  </testsuite>
+  <testsuite name="issueToDTO" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:52:57" time="28.946" tests="9">
+    <testcase classname="issueToDTO should map key field" name="issueToDTO should map key field" time="0.003">
+    </testcase>
+    <testcase classname="issueToDTO should map project field" name="issueToDTO should map project field" time="0">
+    </testcase>
+    <testcase classname="issueToDTO should map issuetype field" name="issueToDTO should map issuetype field" time="0">
+    </testcase>
+    <testcase classname="issueToDTO should map status field" name="issueToDTO should map status field" time="0.001">
+    </testcase>
+    <testcase classname="issueToDTO should map summary field" name="issueToDTO should map summary field" time="0">
+    </testcase>
+    <testcase classname="issueToDTO should map description field" name="issueToDTO should map description field" time="0.009">
+    </testcase>
+    <testcase classname="issueToDTO Should map custom field" name="issueToDTO Should map custom field" time="0.001">
+    </testcase>
+    <testcase classname="issueToDTO should map yes/no boolean field" name="issueToDTO should map yes/no boolean field" time="0.001">
+    </testcase>
+    <testcase classname="issueToDTO should map select field" name="issueToDTO should map select field" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="mapDynamodbRecordToApiKey" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:53:25" time="1.275" tests="1">
+    <testcase classname="mapDynamodbRecordToApiKey should map API key" name="mapDynamodbRecordToApiKey should map API key" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="dtoToIssue" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:52:57" time="29.301" tests="10">
+    <testcase classname="dtoToIssue should map key field" name="dtoToIssue should map key field" time="0.002">
+    </testcase>
+    <testcase classname="dtoToIssue should map project field" name="dtoToIssue should map project field" time="0">
+    </testcase>
+    <testcase classname="dtoToIssue should map issuetype field" name="dtoToIssue should map issuetype field" time="0.001">
+    </testcase>
+    <testcase classname="dtoToIssue should map status field" name="dtoToIssue should map status field" time="0">
+    </testcase>
+    <testcase classname="dtoToIssue should map summary field" name="dtoToIssue should map summary field" time="0">
+    </testcase>
+    <testcase classname="dtoToIssue should map createdAt field" name="dtoToIssue should map createdAt field" time="0">
+    </testcase>
+    <testcase classname="dtoToIssue should map description content field" name="dtoToIssue should map description content field" time="0.001">
+    </testcase>
+    <testcase classname="dtoToIssue should map yes/no boolean field" name="dtoToIssue should map yes/no boolean field" time="0.001">
+    </testcase>
+    <testcase classname="dtoToIssue should map link field" name="dtoToIssue should map link field" time="0">
+    </testcase>
+    <testcase classname="dtoToIssue should map select field" name="dtoToIssue should map select field" time="0.033">
+    </testcase>
+  </testsuite>
+  <testsuite name="mapFilterStringToCustomerOpinionCaseFilterDictionary" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:53:26" time="0.971" tests="1">
+    <testcase classname="mapFilterStringToCustomerOpinionCaseFilterDictionary should map filter string to customer opinion case filter dictionary" name="mapFilterStringToCustomerOpinionCaseFilterDictionary should map filter string to customer opinion case filter dictionary" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="stringToDate" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:53:26" time="0.771" tests="2">
+    <testcase classname="stringToDate should parse ISO 8601 date string" name="stringToDate should parse ISO 8601 date string" time="0.004">
+    </testcase>
+    <testcase classname="stringToDate should throw error if date string is invalid" name="stringToDate should throw error if date string is invalid" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="getKeysOfObject" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:53:26" time="0.745" tests="1">
+    <testcase classname="getKeysOfObject should return keys of object" name="getKeysOfObject should return keys of object" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="parseJwtToken" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:53:26" time="0.822" tests="1">
+    <testcase classname="parseJwtToken should parse jwt token" name="parseJwtToken should parse jwt token" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="removeKeyFromDictionary" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:53:26" time="0.541" tests="1">
+    <testcase classname="removeKeyFromDictionary should remove key from dictionary" name="removeKeyFromDictionary should remove key from dictionary" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="createJwtToken" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:53:26" time="0.6" tests="1">
+    <testcase classname="createJwtToken should create jwt token" name="createJwtToken should create jwt token" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="parseDbRecordToCaseCreateCustomerOpinionJson" errors="0" failures="0" skipped="0" timestamp="2024-03-07T20:52:57" time="29.824" tests="3">
+    <testcase classname="parseDbRecordToCaseCreateCustomerOpinionJson should parse db record to case create customer opinion json" name="parseDbRecordToCaseCreateCustomerOpinionJson should parse db record to case create customer opinion json" time="0.004">
+    </testcase>
+    <testcase classname="parseDbRecordToCaseCreateCustomerOpinionJson should set default summary text if summary is missing" name="parseDbRecordToCaseCreateCustomerOpinionJson should set default summary text if summary is missing" time="0">
+    </testcase>
+    <testcase classname="parseDbRecordToCaseCreateCustomerOpinionJson should set default summary text if summary is empty string" name="parseDbRecordToCaseCreateCustomerOpinionJson should set default summary text if summary is empty string" time="0">
+    </testcase>
+  </testsuite>
+</testsuites>

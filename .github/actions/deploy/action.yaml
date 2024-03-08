@@ -1,0 +1,51 @@
+name: Deploy CDK Stack
+description: "Deploys CDK stack to AWS"
+inputs:
+  environment:
+    description: "Name of the environment"
+    required: true
+  build-name:
+    description: "Name of the build artifact"
+    required: true
+  aws-account-id:
+    description: "AWS account ID"
+    required: true
+  aws-region:
+    description: "AWS region"
+    required: true
+  stack:
+    description: "Name of the stack to deploy"
+    required: true
+
+runs: 
+  using: "composite"
+  steps:
+    - name: Download build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.build-name }}
+        path: ./
+
+    - name: Unizp build artifacts
+      shell: bash
+      run: |
+        unzip -q -o build.zip
+
+    - name: Install IaC dependencies
+      uses: ./.github/actions/install
+  
+    - name: Bootstrap CDK
+      run: yarn cdk bootstrap
+      shell: bash
+      env: 
+        ENVIRONMENT: ${{ inputs.environment }}
+        AWS_ACCOUNT_ID: ${{ inputs.aws-account-id }}
+        AWS_REGION: ${{ inputs.aws-region }}
+
+    - name: CDK Deploy
+      run: yarn cdk deploy --require-approval never ${{ inputs.stack }}
+      shell: bash
+      env: 
+        ENVIRONMENT: ${{ inputs.environment }}
+        AWS_ACCOUNT_ID: ${{ inputs.aws-account-id }}
+        AWS_REGION: ${{ inputs.aws-region }}
