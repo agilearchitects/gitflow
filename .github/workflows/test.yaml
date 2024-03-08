@@ -29,9 +29,3 @@ jobs:
           build-name: test
           aws-account-id: ${{ vars.AWS_ACCOUNT_ID }}
           aws-region: ${{ vars.AWS_REGION }}
-  
-  e2e:
-    uses: ./.github/workflows/e2e.yaml
-  
-  staging:
-    uses: ./.github/workflows/staging.yaml
