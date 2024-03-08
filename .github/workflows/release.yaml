@@ -23,7 +23,7 @@ jobs:
   
   test:
     uses: ./.github/workflows/test.yaml
-    needs: [test]
+    needs: [release]
   
   e2e:
     uses: ./.github/workflows/e2e.yaml
