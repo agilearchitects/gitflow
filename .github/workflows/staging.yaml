@@ -1,4 +1,4 @@
-name: Staging
+name: Deploy to staging
 
 on:
   workflow_dispatch:
@@ -9,8 +9,10 @@ permissions:
   actions: read
 
 jobs:
-  build:
+  build_and_deploy:
+    name: Build and deploy
     runs-on: ubuntu-latest
+    environment: staging
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,14 +21,6 @@ jobs:
         uses: ./.github/actions/build
         with:
           name: staging
-  
-  deploy:
-    runs-on: ubuntu-latest
-    environment: staging
-    needs: [build]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - name: Deploy Stack
         uses: ./.github/actions/deploy
