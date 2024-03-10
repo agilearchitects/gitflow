@@ -21,7 +21,7 @@ runs:
     - name: Generate branch name
       id: branch
       shell: bash
-      run: echo name=branch::release/rc${{ inputs.version }}_${{ inputs.attempt }} >> $GITHUB_OUTPUT
+      run: echo name=release/rc${{ inputs.version }}_${{ inputs.attempt }} >> $GITHUB_OUTPUT
     
     - name: Create branch
       uses: peterjgrainger/action-create-branch@v2.2.0
