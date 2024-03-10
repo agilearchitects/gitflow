@@ -1,0 +1,39 @@
+name: Initiate release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        description: 'Version to release'
+        required: true
+      attempt:
+        type: number
+        description: 'release attempt number'
+        required: true
+        default: 1
+
+permissions:
+  contents: write
+
+jobs:
+  initiate-release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Verify version name
+      uses: ./.github/actions/verify-version
+      with:
+        version: ${{ inputs.version }}
+
+    - name: Create release branch
+      uses: ./.github/actions/create-release-branch
+      id: create-release-branch
+      with:
+        version: ${{ inputs.version }}
+        attempt: ${{ inputs.attempt }}
+
+    - name: Create pull request
+      uses: ./.github/actions/create-release-pull-request
+      with:
+        version: ${{ inputs.version }}
+        releaseBranch: ${{ steps.create-release-branch.outputs.branch }}
