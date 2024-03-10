@@ -5,6 +5,7 @@ inputs:
   version:
     description: 'Version to release'
     required: true
+
 runs: 
   using: composite
   steps:
