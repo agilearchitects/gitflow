@@ -28,4 +28,4 @@ runs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
-        branch: refs/heads/${{ steps.branch.outputs.name }}
+        branch: ${{ steps.branch.outputs.name }}
