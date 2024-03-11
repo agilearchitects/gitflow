@@ -1,0 +1,29 @@
+name: Hotfix
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+  run_if:
+    if:  startsWith(github.head_ref, 'fix/')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The head of this PR starts with 'fix'"
+
+  test:
+    uses: ./.github/workflows/test.yaml
+  
+  e2e:
+    uses: ./.github/workflows/e2e.yaml
+    needs: [release]
+  
+  staging:
+    uses: ./.github/workflows/staging.yaml
+    needs: [release, test, e2e]
