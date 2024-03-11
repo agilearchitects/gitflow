@@ -1,0 +1,22 @@
+name: Pull request to main
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yaml
+
+  e2e:
+    uses: ./.github/workflows/e2e.yaml
+  
+  staging:
+    uses: ./.github/workflows/staging.yaml
+    needs: [test, e2e]

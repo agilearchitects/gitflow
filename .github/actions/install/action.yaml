@@ -1,0 +1,23 @@
+name: Install dependencies
+description: Install dependencies with yarn using node version from .nvmrc
+
+runs: 
+  using: composite
+  steps:
+  - name: Get node version from .nvmrc
+    shell: bash
+    run: echo name=NODE_VERSION::$(cat .nvmrc) >> $GITHUB_OUTPUT
+    id: nvm
+  
+  - name: Setup node version
+    uses: actions/setup-node@v4
+    with:
+      node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
+  
+  - name : Install yarn
+    shell: bash
+    run: npm install -g yarn
+  
+  - name: Install dependencies
+    shell: bash
+    run: yarn

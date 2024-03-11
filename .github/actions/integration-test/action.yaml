@@ -1,0 +1,20 @@
+name: Integration test
+description: Run integration tests with yarn
+
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      uses: ./.github/actions/install
+    
+    - name: Run integration tests
+      shell: bash
+      run: yarn integration-test
+    
+    - name: Upload test results
+      uses: dorny/test-reporter@v1
+      if: failure() || success()
+      with:
+        name: integration test report
+        path: test-reports/**/*.xml
+        reporter: jest-junit

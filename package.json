@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-node scripts/test",
+    "integration-test": "ts-node scripts/integration-test",
+    "e2e": "ts-node scripts/e2e",
+    "cdk": "ts-node scripts/cdk"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.25",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  }
+}

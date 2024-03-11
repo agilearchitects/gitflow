@@ -1,0 +1,32 @@
+name: Pull request to dev
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Test
+        uses: ./.github/actions/unit-test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Build
+        uses: ./.github/actions/build
+        with:
+          name: pull_request

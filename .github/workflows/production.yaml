@@ -1,0 +1,49 @@
+name: Deploy to production
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - v*
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Test
+      uses: ./.github/actions/unit-test
+  
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Build
+      uses: ./.github/actions/build
+      with:
+        name: production
+
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: [test, build]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Deploy Stack
+      uses: ./.github/actions/deploy
+      with:
+        environment: dev
+        build-name: dev
+        aws-account-id: ${{ vars.AWS_ACCOUNT_ID }}
+        aws-region: ${{ vars.AWS_REGION }}

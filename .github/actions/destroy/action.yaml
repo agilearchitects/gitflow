@@ -1,0 +1,29 @@
+name: Destroy CDK Stack
+description: "Destroy CDK stack to AWS"
+inputs:
+  environment:
+    description: "Name of the environment"
+    required: true
+  aws-account-id:
+    description: "AWS account ID"
+    required: true
+  aws-region:
+    description: "AWS region"
+    required: true
+  stack:
+    description: "Name of the stack to destroy"
+    required: true
+
+runs: 
+  using: "composite"
+  steps:
+    - name: Install IaC dependencies
+      uses: ./.github/actions/install
+  
+    - name: CDK Destroy
+      run: yarn cdk destroy ${{ inputs.stack }} --force
+      shell: bash
+      env: 
+        ENVIRONMENT: ${{ inputs.environment }}
+        AWS_ACCOUNT_ID: ${{ inputs.aws-account-id }}
+        AWS_REGION: ${{ inputs.aws-region }}
