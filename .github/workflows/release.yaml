@@ -19,9 +19,11 @@ jobs:
 
   test:
     uses: ./.github/workflows/test.yaml
-  
+    needs: [run_if]
+
   e2e:
     uses: ./.github/workflows/e2e.yaml
+    needs: [run_if]
   
   staging:
     uses: ./.github/workflows/staging.yaml
