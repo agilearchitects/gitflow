@@ -11,6 +11,12 @@ permissions:
   checks: write
 
 jobs:
+  run_if:
+    if:  startsWith(github.head_ref, 'releases/rc')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The head of this PR starts with 'releases/rc'"
+
   test:
     uses: ./.github/workflows/test.yaml
   
