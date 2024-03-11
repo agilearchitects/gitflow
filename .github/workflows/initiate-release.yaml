@@ -33,3 +33,9 @@ jobs:
       with:
         version: ${{ inputs.version }}
         attempt: ${{ inputs.attempt }}
+
+    - name: Create pull request
+      uses: ./.github/actions/create-release-pull-request
+      with:
+        version: ${{ inputs.version }}
+        releaseBranch: ${{ steps.create-release-branch.outputs.branch }}

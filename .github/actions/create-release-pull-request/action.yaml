@@ -13,8 +13,7 @@ runs:
   using: composite
   steps:
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v6
-      with:
-        branch: ${{ inputs.releaseBranch }}
-        base: main
-        title: "Release v${{ inputs.version }}"
+      shell: bash
+      run: gh pr create -B main  -H ${{ inputs.releaseBranch }} -t "Release v${{ inputs.version }}" -b "Release v${{ inputs.version }}" -l release
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
