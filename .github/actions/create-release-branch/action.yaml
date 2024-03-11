@@ -1,0 +1,31 @@
+name: Create release branch
+description: Create a release branch
+
+inputs:
+  version:
+    description: 'Version to release'
+    required: true
+  attempt:
+    description: 'release attempt number'
+    required: true
+    default: '1'
+
+outputs:
+  branch:
+    description: 'The name of the release branch'
+    value: ${{ steps.branch.outputs.name }}
+    
+runs: 
+  using: composite
+  steps:
+    - name: Generate branch name
+      id: branch
+      shell: bash
+      run: echo name=release/rc${{ inputs.version }}_${{ inputs.attempt }} >> $GITHUB_OUTPUT
+    
+    - name: Create branch
+      uses: peterjgrainger/action-create-branch@v3.0.0
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        branch: ${{ steps.branch.outputs.name }}
