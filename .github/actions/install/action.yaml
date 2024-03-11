@@ -6,7 +6,7 @@ runs:
   steps:
   - name: Get node version from .nvmrc
     shell: bash
-    run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+    run: echo name=NODE_VERSION::$(cat .nvmrc) >> $GITHUB_OUTPUT
     id: nvm
   
   - name: Setup node version
