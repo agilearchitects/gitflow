@@ -1,0 +1,19 @@
+name: Create Pull Request
+description: Create a pull request
+
+inputs:
+  version: 
+    description: 'Version to release'
+    required: true
+  releaseBranch:
+    description: 'The release branch to create a pull request from'
+    required: true
+
+runs: 
+  using: composite
+  steps:
+    - name: Create Pull Request
+      shell: bash
+      run: gh pr create -B main  -H ${{ inputs.releaseBranch }} -t "Release v${{ inputs.version }}" -b "Release v${{ inputs.version }}"
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
